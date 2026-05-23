@@ -29,9 +29,9 @@ for hour_data in weather_data["list"]:
         will_rain = True
         break
 if will_rain:
-    proxy_client = TwilioHttpClient()
-    proxy_client.session.proxies = {"http": os.environ["http_proxy"]}
-    client = Client(account_sid, auth_token, http_client=proxy_client)
+    #proxy_client = TwilioHttpClient()
+    #proxy_client.session.proxies = {"http": os.environ["http_proxy"]}
+    client = Client(account_sid, auth_token)
     message = client.messages.create(
         body="It si going to rain today. Remember to bring on umbrella",
         from_=PHONE_NUMBER,
